@@ -1,0 +1,16 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL") // MongoDB bağlantı URL'si buraya eklenmeli
+}
+
+model Data {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  value String
+}
