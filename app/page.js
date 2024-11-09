@@ -86,79 +86,79 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold text-center mb-4">Veri Ekle</h1>
+        <h1 className="text-2xl text-black font-bold text-center mb-4">Add data</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Ad"
+            placeholder="Name"
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           />
           <input
             type="text"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder="Değer"
+            placeholder="Value"
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           />
           <button
             type="submit"
             className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
           >
-            Ekle
+            Add
           </button>
         </form>
 
         {editId && (
           <div className="mt-6">
-            <h2 className="text-xl font-semibold text-center mb-4">Veri Güncelle</h2>
+            <h2 className="text-xl font-semibold text-center mb-4 text-black">Update data</h2>
             <form onSubmit={handleUpdate} className="space-y-4">
               <input
                 type="text"
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
-                placeholder="Yeni Ad"
+                placeholder="New name"
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
               <input
                 type="text"
                 value={editValue}
                 onChange={(e) => setEditValue(e.target.value)}
-                placeholder="Yeni Değer"
+                placeholder="New value"
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
               <button
                 type="submit"
                 className="w-full py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
               >
-                Güncelle
+                Update
               </button>
             </form>
           </div>
         )}
 
-        <h2 className="text-xl font-semibold text-center mt-8 mb-4">Veriler</h2>
+        <h2 className="text-xl font-semibold text-center mt-8 mb-4 text-black">Data</h2>
         <ul className="space-y-4">
           {data.map((item) => (
             <li key={item.id} className="flex justify-between items-center">
-              <span>{item.name}: {item.value}</span>
+              <span className='text-black'>{item.name}: {item.value}</span>
               <div>
                 <button
                   onClick={() => handleEdit(item)}
                   className="px-4 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 mr-2"
                 >
-                  Düzenle
+                  Edit
                 </button>
                 <button
                   onClick={() => handleDelete(item.id)}
                   className="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
                 >
-                  Sil
+                  Delete
                 </button>
               </div>
             </li>
